@@ -1,10 +1,13 @@
-import React from 'react';
+import React from 'react'
+import Layout from './components/Layout'
+
+import News from './components/News'
 
 function App() {
   return (
-    <div>
-     
-    </div>
+    <Layout>
+      <News/>
+    </Layout>
   );
 }
 
