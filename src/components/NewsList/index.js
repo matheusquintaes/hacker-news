@@ -56,12 +56,11 @@ class NewsList extends React.Component {
         { 
           newsList && 
           newsList.map((news, index) => {
-            const numberOfComments = news.hasOwnProperty("kids") ? news.kids.length : '0'
             return (
                 <Style.CardWrapper key={index}>
                   <Style.Ranking>{index + 1}</Style.Ranking>
-                  <h3> <a href="/">{news.title}</a> </h3>
-                    <p>by <a href="/"> <b>{news.by}</b></a> on 12/11/2019, 8:59 AM • <a href="/"><b>{numberOfComments}</b> comments</a></p>
+                    <h3> <a href="/">{news.title}</a> </h3>
+                    <p>by <a href="/"> <b>{news.by}</b></a> on 12/11/2019, 8:59 AM • <a href="/"><b>{news.descendants}</b> comments</a></p>
                 </Style.CardWrapper>
             )
           })
