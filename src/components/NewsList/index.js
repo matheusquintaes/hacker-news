@@ -1,5 +1,7 @@
 import React from "react"
 
+import { fetchMainPosts } from '../../utils/api'
+
 import * as Style from "./styled"
 
 function StatusNav ({ selected, onUpdateStatus}) {
@@ -23,8 +25,17 @@ class NewsList extends React.Component {
   
   state = {
     selectedStatus: 'Top',
-    newsList: {},
+    newsList: null,
     error: null
+  }
+
+  componentDidMount () {
+     fetchMainPosts('top')
+     .then((data) => {
+       this.setState({
+         newsList: data
+       })
+     })
   }
 
   updateStatus = (selectedStatus) => {
@@ -35,17 +46,26 @@ class NewsList extends React.Component {
   }
 
   render() {
-    const { selectedStatus } = this.state
+    const { selectedStatus, newsList } = this.state
 
     return (
       <>
         <StatusNav selected={selectedStatus} onUpdateStatus={this.updateStatus}/>
-        <Style.NewsWrapper>
-          <Style.CardWrapper>
-            <Style.Ranking>1</Style.Ranking>
-            <h3> <a href="/">Things end users care about but programmers don't</a> </h3>
-               <p>by <a href="/"> <b>pmarin</b></a> on 12/11/2019, 8:59 AM • <a href="/"><b>85</b> comments</a></p>
-          </Style.CardWrapper>
+        <Style.NewsWrapper >
+        { 
+          newsList && 
+          newsList.map((news, index) => {
+            const numberOfComments = news.hasOwnProperty("kids") ? news.kids.length : '0'
+            return (
+                <Style.CardWrapper key={index}>
+                  <Style.Ranking>{index + 1}</Style.Ranking>
+                  <h3> <a href="/">{news.title}</a> </h3>
+                    <p>by <a href="/"> <b>{news.by}</b></a> on 12/11/2019, 8:59 AM • <a href="/"><b>{numberOfComments}</b> comments</a></p>
+                </Style.CardWrapper>
+            )
+          })
+        }
+        
         </Style.NewsWrapper>
       </>
     )
