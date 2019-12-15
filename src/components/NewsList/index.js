@@ -32,6 +32,7 @@ class NewsList extends React.Component {
   componentDidMount () {
      fetchMainPosts('top')
      .then((data) => {
+       console.log(data)
        this.setState({
          newsList: data
        })
