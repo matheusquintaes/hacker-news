@@ -1,43 +1,65 @@
 import React from "react"
-import PostsList from '../PostsList'
-
+import PropTypes from 'prop-types'
 import { fetchMainPosts } from '../../utils/api'
+
+import PostsList from '../PostsList'
 
 class Posts extends React.Component {
   
   state = {
-    selectedStatus: 'Top',
     posts: null,
+    loading: true,
     error: null
   }
 
   componentDidMount () {
-     fetchMainPosts('top')
-     .then((data) => {
-       console.log(data)
-       this.setState({
-        posts: data
-       })
-     })
+    console.log('mount')
+    this.handleFetch()
   }
 
-  updateStatus = (selectedStatus) => {
+  componentDidUpdate(prevProps) {
+    if (this.props.type !== prevProps.type) {
+      this.handleFetch(this.props.type);
+    }
+  }
+
+  handleFetch () {
     this.setState({
-      selectedStatus,
+      posts: null,
       error: null,
+      loading: true
     })
+
+    fetchMainPosts(this.props.type)
+    .then((data) => {
+      this.setState({
+       posts: data,
+       loading: false,
+       error: null
+      })
+    }).catch(({ message }) => this.setState({
+      error: message,
+      loading: false
+    }))
+
   }
-
   render() {
-    const { posts } = this.state
+    const { posts, error, loading } = this.state
 
-    return (
-      <>
-        <PostsList posts={posts} />
-      </>
-    )
+    if (loading === true) {
+      return <p>Loading</p> 
+    }
+
+    if (error) {
+      return <p className='center-text error'>{error}</p>
+    }
+
+    return <PostsList posts={posts} type={this.props.type} />
   }
 }
 
 export default Posts
   
+Posts.propTypes = {
+  type: PropTypes.oneOf(['top', 'new'])
+}

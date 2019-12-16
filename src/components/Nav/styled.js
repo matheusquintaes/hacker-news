@@ -15,17 +15,19 @@ position: relative;
 
 export const Ul = styled.ul`
 display: flex;
-
-li {
-  font-size: 20px;
-  color: var(--textColor);
+li{
+  padding: 0 4px 8px 0;
   text-transform: uppercase;
   font-weight: 800;
   margin-right: 64px;
-  padding: 0 4px 8px 0;
   cursor: pointer;
+}
+a {
+  font-size: 20px;
+  color: var(--textColor);
+  padding: 1px 10px;
   
-  &.selected{
+  &.active{
     border-bottom: 4px solid var(--mainColor);
   }
 }
