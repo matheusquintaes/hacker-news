@@ -10,7 +10,7 @@ function PostList ( {posts, type} ) {
             <Style.CardWrapper key={index}>
                 { type === 'top' && <Style.Ranking>{index + 1}</Style.Ranking> } 
                 <h3> <a href={post.url}>{post.title}</a> </h3>
-                <PostInfo url={post.url} author={post.by} time={post.time} comments={post.descendants} />
+                <PostInfo author={post.by} time={post.time} comments={post.descendants} />
             </Style.CardWrapper>
           )
         })

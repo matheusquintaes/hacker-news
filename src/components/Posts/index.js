@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import { fetchMainPosts } from '../../utils/api'
-
 import PostsList from '../PostsList'
 
 class Posts extends React.Component {
@@ -13,7 +12,6 @@ class Posts extends React.Component {
   }
 
   componentDidMount () {
-    console.log('mount')
     this.handleFetch()
   }
 
