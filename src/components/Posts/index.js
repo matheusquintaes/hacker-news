@@ -29,9 +29,9 @@ class Posts extends React.Component {
     })
 
     fetchMainPosts(this.props.type)
-    .then((data) => {
+    .then((posts) => {
       this.setState({
-       posts: data,
+       posts,
        loading: false,
        error: null
       })

@@ -6,7 +6,6 @@ function PostList ( {posts, type} ) {
   return (
     <Style.PostsWrapper >
       { posts && posts.map((post, index) => {
-        console.log(post)
           return (
             <Style.CardWrapper key={index}>
                 { type === 'top' && <Style.Ranking>{index + 1}</Style.Ranking> } 
