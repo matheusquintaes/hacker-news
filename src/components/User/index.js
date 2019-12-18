@@ -38,24 +38,26 @@ class User extends React.Component {
     return(
       <>
       
-        {!loadingUser && 
-          <Style.UserWrapper>
-            <Style.UserInfos>
-              <h3>{user.id}</h3>     
-              <p>joined <b>{formatDate(user.created)}</b></p>
-              <p dangerouslySetInnerHTML={{__html: user.about}}/> 
-            </Style.UserInfos>
-            <Style.UserKarma>
-                <p>KARMA POINTS </p> 
-                <h4>{user.karma}</h4>
-            </Style.UserKarma>
-          </Style.UserWrapper>
+        {loadingUser === true 
+          ? <p>Loading...</p> 
+          : <Style.UserWrapper>
+              <Style.UserInfos>
+                <h3>{user.id}</h3>     
+                <p>joined <b>{formatDate(user.created)}</b></p>
+                <p dangerouslySetInnerHTML={{__html: user.about}}/> 
+              </Style.UserInfos>
+              <Style.UserKarma>
+                  <p>KARMA POINTS </p> 
+                  <h4>{user.karma}</h4>
+              </Style.UserKarma>
+            </Style.UserWrapper>
         }
-        {!loadingPosts &&  
-          <>
-            <Style.TitlePosts>Last Posts</Style.TitlePosts>
-            <PostsList posts={posts}/>
-          </>
+        {loadingPosts === true 
+          ? <p>Loading...</p> 
+          : <>
+              <Style.TitlePosts>Last Posts</Style.TitlePosts>
+              <PostsList posts={posts}/>
+            </>
           }
       </>
     )
