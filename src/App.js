@@ -5,6 +5,7 @@ import Layout from './components/Layout'
 import Nav from './components/Nav'
 import Posts from './components/Posts'
 import User from './components/User'
+import Post from './components/Post'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               }
             />
             <Route path='/user' component={User}/>
+            <Route path='/post' component={Post}/>
             />
           </Switch>
       </Layout>

@@ -6,11 +6,12 @@ function PostList ( {posts, type} ) {
   return (
     <Style.PostsWrapper >
       { posts && posts.map((post, index) => {
+        console.log(post)
           return (
             <Style.CardWrapper key={index}>
                 { type === 'top' && <Style.Ranking>{index + 1}</Style.Ranking> } 
                 <h3> <a href={post.url}>{post.title}</a> </h3>
-                <PostInfo author={post.by} time={post.time} comments={post.descendants} />
+                <PostInfo id={post.id} author={post.by} time={post.time} comments={post.descendants} />
             </Style.CardWrapper>
           )
         })
