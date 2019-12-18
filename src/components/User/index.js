@@ -2,6 +2,7 @@ import React from "react"
 import PostsList from '../PostsList'
 import { fetchPosts, fetchUser} from '../../utils/api'
 import queryString from 'query-string'
+import { formatDate } from '../../utils/helpers'
 
 import * as Style from "./styled"
 
@@ -30,14 +31,18 @@ class User extends React.Component {
 
   render() {
     const { user, posts, error, loadingUser, loadingPosts} = this.state
-
+    
+    if (error) {
+      return <p>{error}</p>
+    }
     return(
       <>
+      
         {!loadingUser && 
           <Style.UserWrapper>
             <Style.UserInfos>
               <h3>{user.id}</h3>     
-              <p>joined 10/8/2017</p>
+              <p>joined <b>{formatDate(user.created)}</b></p>
               <p dangerouslySetInnerHTML={{__html: user.about}}/> 
             </Style.UserInfos>
             <Style.UserKarma>
@@ -46,7 +51,12 @@ class User extends React.Component {
             </Style.UserKarma>
           </Style.UserWrapper>
         }
-        {!loadingPosts &&  <PostsList posts={posts}/>}
+        {!loadingPosts &&  
+          <>
+            <Style.TitlePosts>Last Posts</Style.TitlePosts>
+            <PostsList posts={posts}/>
+          </>
+          }
       </>
     )
   }

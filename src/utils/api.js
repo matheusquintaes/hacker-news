@@ -1,8 +1,6 @@
 const api = `https://hacker-news.firebaseio.com/v0`
 const json = '.json?print=pretty'
 
-// https://hacker-news.firebaseio.com/v0/topstories.json`
-
 export function fetchItem (id) {
   return fetch(`${api}/item/${id}${json}`)
     .then((res) => res.json())

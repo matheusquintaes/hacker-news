@@ -4,10 +4,12 @@ export const UserWrapper = styled.section`
   padding: 24px;
   background: var(--bg-white);
   border: 1px solid var(--gray4);
+  box-shadow: var(--boxShadow);
   margin-bottom: 48px;
   display: inline-flex;
-  width: 450px;
-  
+  p {
+    margin-bottom: 8px;
+  }
   h3 {
     font-size: 24px;
     color: var(--textColor);
@@ -16,21 +18,21 @@ export const UserWrapper = styled.section`
   }
 
   p{
-    color: var(--grey6);
+    color: var(--gray6);
     font-size: 14px;
-    margin-bottom: 4px;
   }
 `
 
 export const UserInfos = styled.div`
-  flex: 0 1 250px;
+  max-width: 280px;
   margin-right: 48px;
 `
 
 export const UserKarma = styled.div`
-    flex: 0 1 100px;
+    align-self: center;
+    text-align: center;
   p{
-    color: var(--gray8);
+    color: var(--gray6);
     font-weight: 800;
     font-size: 12px;
     letter-spacing: 1.5px;
@@ -42,4 +44,14 @@ export const UserKarma = styled.div`
     font-size: 48px;
   }
 
+`
+
+export const TitlePosts = styled.h2`
+  font-size: 30px;
+  font-weight:800;
+  color: var(--textColor);
+  margin-bottom: 32px;
+  i {
+    font-size: 16px;
+  }
 `

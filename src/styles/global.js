@@ -67,6 +67,7 @@ body {
   --textSecondColor: #858d95;
   --mainColor: #4653A9;
   --backgroundColor: #FCFEFD;
+	--boxShadow: 0px 4px 6px rgba(0, 0, 0, 0.08);
 }
 
 body {

@@ -12,7 +12,7 @@ export const CardWrapper = styled.div`
   position: relative;
   width:100%;
   margin-top: -1px;
-
+  box-shadow: var(--boxShadow);
   h3 {
     font-size: 20px;
     font-weight: 600;
