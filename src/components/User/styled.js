@@ -47,7 +47,7 @@ export const UserKarma = styled.div`
 `
 
 export const TitlePosts = styled.h2`
-  font-size: 30px;
+  font-size: 24px;
   font-weight:800;
   color: var(--textColor);
   margin-bottom: 32px;

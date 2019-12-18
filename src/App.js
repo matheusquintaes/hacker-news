@@ -10,17 +10,20 @@ function App() {
   return (
     <Router>
       <Layout>
-        <Nav/>
          <Switch>
             <Route
               exact
               path='/'
-              render={() => <Posts type='top' />}
+              render={() => 
+                <><Nav/><Posts type='top' /></>
+              }
             />
             <Route 
               exact
               path='/new'
-              render={() => <Posts type='new' />}
+              render={() => 
+                <><Nav/><Posts type='new' /></>
+              }
             />
             <Route path='/user' component={User}/>
             />

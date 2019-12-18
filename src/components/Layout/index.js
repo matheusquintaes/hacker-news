@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from 'react-router-dom'
 
 import { ReactComponent as Logo } from '../../images/Logo.svg';
 
@@ -12,7 +13,9 @@ const Layout = ({ children }) => {
       <GlobalStyles/>
       <Style.TopBar/>
       <Style.LayoutWrapper>
-        <Logo/>
+        <Style.LogoWrapper>
+          <NavLink to='/' exact> <Logo/> </NavLink>
+        </Style.LogoWrapper>
         {children} 
       </Style.LayoutWrapper>
     </>

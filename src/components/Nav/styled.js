@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const NavWrapper = styled.nav`
-margin: 48px 0;
+margin-bottom: 48px;
 width: 100%;
 position: relative;
 
