@@ -26,6 +26,7 @@ export const UserWrapper = styled.section`
 export const UserInfos = styled.div`
   max-width: 280px;
   margin-right: 48px;
+  overflow: hidden;
 `
 
 export const UserKarma = styled.div`
@@ -47,7 +48,7 @@ export const UserKarma = styled.div`
 `
 
 export const TitlePosts = styled.h2`
-  font-size: 24px;
+  font-size: 20px;
   font-weight:800;
   color: var(--textColor);
   margin-bottom: 32px;
