@@ -4,8 +4,8 @@ import media from "styled-media-query"
 export const PostInfoWrapper = styled.div`
 
   color: var(--gray6);
-  ${media.lessThan('large')`
-      /* font-size: 14px; */
+  ${media.lessThan('medium')`
+      font-size: 14px;
     `}
   a {
     color: var(--gray6);
