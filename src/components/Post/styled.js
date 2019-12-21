@@ -2,8 +2,8 @@ import styled from "styled-components"
 
 
 export const PostWrapper = styled.section`
-  padding: 32px 0;
-  width:100%;
+  margin-bottom: 32px;
+  width: 100%;
 `
 export const PostTitle = styled.h1`
     font-size: 24px;

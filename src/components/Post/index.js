@@ -4,7 +4,7 @@ import queryString from 'query-string'
 import PostInfo from '../PostInfo'
 import Comment from '../Comment'
 import { removeDeleted } from '../../utils/helpers'
-
+import Loading from '../Loading'
 
 import * as Style from "./styled"
 
@@ -50,17 +50,17 @@ class Post extends React.Component {
       <Style.PostWrapper>
       
         {loadingPost === true 
-          ? <p>Loading...</p> 
+          ? <Loading/>
           : 
               <> 
-                <Style.PostTitle><a href={post.url}>{post.title}</a></Style.PostTitle>
+                <Style.PostTitle><a target="_blank" rel="noopener noreferrer" href={post.url}>{post.title}</a></Style.PostTitle>
                 <PostInfo id={post.id} author={post.by} time={post.time} comments={post.descendants}/>
               </>
         }
       </Style.PostWrapper>
 
         {loadingComments === true 
-          ? <p>Loading...</p> 
+          ? <Loading/> 
           : 
           <>
             <Style.CommentsTitle>Main Comments</Style.CommentsTitle>

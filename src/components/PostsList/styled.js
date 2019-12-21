@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const PostsWrapper = styled.section`
   display: flex;
@@ -9,6 +10,9 @@ export const CardWrapper = styled.div`
   background: var(--bg-white);
   border: 1px solid var(--gray4);
   padding: 32px 48px;
+  ${media.lessThan('large')`
+    padding: 24px 32px;
+  `}
   position: relative;
   width:100%;
   margin-top: -1px;
@@ -17,6 +21,10 @@ export const CardWrapper = styled.div`
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 16px;
+
+    ${media.lessThan('large')`
+      /* font-size: 18px; */
+    `}
 
     a {
       color: var(--mainColor);

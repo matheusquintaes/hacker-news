@@ -3,6 +3,7 @@ import PostsList from '../PostsList'
 import { fetchPosts, fetchUser} from '../../utils/api'
 import queryString from 'query-string'
 import { formatDate } from '../../utils/helpers'
+import Loading from '../Loading'
 
 import * as Style from "./styled"
 
@@ -39,7 +40,7 @@ class User extends React.Component {
       <>
       
         {loadingUser === true 
-          ? <p>Loading...</p> 
+          ? <Loading/>
           : <Style.UserWrapper>
               <Style.UserInfos>
                 <h3>{user.id}</h3>     
@@ -53,7 +54,7 @@ class User extends React.Component {
             </Style.UserWrapper>
         }
         {loadingPosts === true 
-          ? <p>Loading...</p> 
+          ? <Loading/>
           : <>
               <Style.TitlePosts>Last Posts</Style.TitlePosts>
               <PostsList posts={posts}/>

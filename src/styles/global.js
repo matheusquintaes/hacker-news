@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import media from "styled-media-query"
 
 const GlobalStyles = createGlobalStyle`
 
@@ -22,15 +23,25 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
+  background: var(--backgroundColor);
+	font-family: 'Noto Serif', serif;
+	box-sizing: border-box;
 	line-height: 1;
+	overflow-x: hidden;
+	${media.lessThan('large')`
+		font-size: 16px;
+  `}
 }
+
 ol, ul {
 	list-style: none;
 }
@@ -70,9 +81,5 @@ body {
 	--boxShadow: 0px 4px 6px rgba(0, 0, 0, 0.08);
 }
 
-body {
-  background: var(--backgroundColor);
-	font-family: 'Noto Serif', serif;
-}
 `
 export default GlobalStyles

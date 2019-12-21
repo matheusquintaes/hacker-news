@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const UserWrapper = styled.section`
   padding: 24px;
@@ -12,6 +13,9 @@ export const UserWrapper = styled.section`
   }
   h3 {
     font-size: 24px;
+    ${media.lessThan('large')`
+      /* font-size: 20px; */
+    `}
     color: var(--textColor);
     font-weight: 800;
     margin-bottom: 12px;

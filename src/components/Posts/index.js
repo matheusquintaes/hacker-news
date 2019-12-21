@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from 'prop-types'
 import { fetchMainPosts } from '../../utils/api'
 import PostsList from '../PostsList'
+import Loading from '../Loading'
 
 class Posts extends React.Component {
   
@@ -45,7 +46,7 @@ class Posts extends React.Component {
     const { posts, error, loading } = this.state
 
     if (loading === true) {
-      return <p>Loading</p> 
+      return <Loading/>
     }
 
     if (error) {
